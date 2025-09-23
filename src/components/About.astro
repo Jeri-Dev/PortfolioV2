@@ -1,0 +1,57 @@
+---
+import TechItem from "./TechItem.astro"
+import {
+	IconBrandFlutter,
+	IconBrandReact,
+	IconBrandNextjs,
+	IconBrandTypescript,
+	IconBrandJavascript,
+	IconBrandNodejs,
+	IconServer,
+	IconBrandMongodb,
+	IconBrandPython,
+	IconServer2,
+	IconBrandFigma,
+	IconBrandAzure,
+} from "@tabler/icons-react"
+---
+
+<main class="flex items-center justify-center h-sreen py-20" id="about">
+	<section class="w-full">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+			<h2
+				class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+			>
+				About me
+			</h2>
+			<p class="mt-6 text-lg leading-7 text-gray-600 dark:text-gray-300">
+				I'm a full-stack and mobile developer with experience building
+				innovative, high-performance applications. My focus is on code quality,
+				user experience, and delivering solutions that exceed expectations. I'm
+				passionate about staying up-to-date with the latest development
+				technologies and trends.
+			</p>
+			<div class="mt-12">
+				<h3 class="text-2xl font-bold text-gray-900 dark:text-white">Skills</h3>
+				<section class="relative py-16 overflow-hidden" id="skills">
+					<div class="relative max-w-4xl mx-auto">
+						<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+							<TechItem title="React" logo={IconBrandReact} />
+							<TechItem title="Nextjs" logo={IconBrandNextjs} />
+							<TechItem title="TypeScript" logo={IconBrandTypescript} />
+							<TechItem title="JavaScript" logo={IconBrandJavascript} />
+							<TechItem title="Nodejs" logo={IconBrandNodejs} />
+							<TechItem title="Express & Nestjs" logo={IconServer} />
+							<TechItem title="MongoDB" logo={IconBrandMongodb} />
+							<TechItem title="Flutter" logo={IconBrandFlutter} />
+							<TechItem title="Python" logo={IconBrandPython} />
+							<TechItem title="FastAPI" logo={IconServer2} />
+							<TechItem title="Figma" logo={IconBrandFigma} />
+							<TechItem title="Azure" logo={IconBrandAzure} />
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+</main>

@@ -1,0 +1,20 @@
+---
+import type { Icon, IconProps } from "@tabler/icons-react"
+
+interface Props {
+	title: string
+	logo: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<Icon>>
+}
+
+const { title, logo: Logo } = Astro.props
+---
+
+<div
+	class="bg-white dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-800 rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-lg transition-all"
+>
+	<Logo size={40} stroke={1.2} />
+	<span
+		class="font-semibold text-[16px] text-sm mt-2 text-slate-800 dark:text-slate-200"
+		>{title}</span
+	>
+</div>

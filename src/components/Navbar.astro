@@ -1,0 +1,111 @@
+---
+
+---
+
+<header
+	id="main-header"
+	class="fixed top-0 left-0 w-full transition-all duration-200 z-50"
+>
+	<div
+		class="container mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+	>
+		<div class="flex items-center gap-3">
+			<svg
+				class="h-6 w-6 text-gray-900 dark:text-white"
+				fill="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					clip-rule="evenodd"
+					d="M12 0.378677L23.6213 12L12 23.6213L0.378677 12L12 0.378677ZM10.5 17.8787V6.12132L4.62132 12L10.5 17.8787Z"
+					fill-rule="evenodd"></path>
+			</svg>
+			<h1 class="text-xl font-bold text-gray-900 dark:text-white">Jeriel</h1>
+		</div>
+		<nav class="hidden md:flex items-center gap-8">
+			<a
+				class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+				href="#home">Home</a
+			>
+			<a
+				class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+				href="#about">About</a
+			>
+			<a
+				class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+				href="#projects">Projects</a
+			>
+			<a
+				class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+				href="#contact">Contact</a
+			>
+		</nav>
+		<a
+			class="hidden md:inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white shadow-sm transition-transform hover:scale-105"
+			href="#"
+		>
+			Descargar CV
+		</a>
+		<button class="md:hidden text-gray-900 dark:text-white">
+			<svg
+				class="w-6 h-6"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M4 6h16M4 12h16m-7 6h7"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"></path>
+			</svg>
+		</button>
+	</div>
+</header>
+
+<script>
+	// Smooth scroll con offset para el navbar
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+			if (targetId === '#') return;
+			
+			const targetElement = document.querySelector(targetId as string);
+			if (targetElement) {
+				const navbarHeight = document.getElementById('main-header')?.offsetHeight || 0;
+				const elementPosition = targetElement.getBoundingClientRect().top;
+				const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+				
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: 'smooth'
+				});
+			}
+		});
+	});
+
+	// Navbar background on scroll
+	
+	const header = document.getElementById("main-header")
+
+	window.addEventListener("scroll", () => {
+		if (window.scrollY > 0) {
+			header?.classList.add(
+				"bg-white/95",
+				"dark:bg-gray-900/95",
+				"backdrop-blur-md",
+				"shadow-lg",
+			)
+		} else {
+			header?.classList.remove(
+				"bg-white/95",
+				"dark:bg-gray-900/95",
+				"backdrop-blur-md",
+				"shadow-lg",
+			)
+		}
+	})
+</script>
