@@ -1,3 +1,8 @@
+---
+import ProjectCard from "./ProjectCard.astro"
+import { projects } from "../data/projects"
+---
+
 <main class="flex items-center justify-center min-h-screen py-20" id="projects">
 	<div class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
 		<div class="text-center mb-12">
@@ -13,104 +18,115 @@
 				mobile development with Flutter.
 			</p>
 		</div>
-		<div class="space-y-16">
-			<div class="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-				<div class="relative overflow-hidden rounded-lg shadow-lg">
-					<div
-						class="aspect-video bg-cover bg-center"
-						style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPz08_VzhaM2KAxS2Z47wwq2ZGYSmNI3l9JOvvyBJrXNbyTuVpq5hPGcgd54QcHx846narZUbWUWZfDNwBnNRD5q11iBSG-RhZuvPNbLtoxv0TkRLSKgQ7fb-5IBtBBqKt8rFP6_GPYYMYvimTpLH9FcH1F-j8Y6ahLN53bnUdrFupgTGEpyWq32TSSgOgfYNFcBTqlRas-qbdOqhQn4xDj2ZKKsg_OExe6BLm3OAsi-3VWCXWASELKSnlqCEEN8_HtQIgOQP_RCs");'
-					>
-					</div>
-					<div
-						class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"
-					>
-					</div>
-				</div>
-				<div class="flex flex-col gap-2">
-					<h3 class="text-2xl font-bold text-slate-900 dark:text-white">
-						Mobile App for Event Management
-					</h3>
-					<p class="text-slate-600 dark:text-slate-400">
-						A Flutter-based mobile application for managing events, including
-						features for scheduling, attendee management, and real-time updates.
-					</p>
-					<div class="mt-4 flex items-center gap-4">
-						<a
-							class="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-all"
-							href="#">View Project</a
-						>
-						<a
-							class="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
-							href="#">GitHub</a
-						>
-					</div>
-				</div>
+
+		<div class="flex justify-center mb-8">
+			<div
+				class="inline-flex rounded-lg bg-slate-200 dark:bg-slate-800 p-1 gap-1"
+			>
+				<button
+					data-filter="all"
+					class="filter-btn px-6 py-2.5 text-sm font-semibold rounded-md transition-all active cursor-pointer"
+				>
+					All Projects
+				</button>
+				<button
+					data-filter="web"
+					class="filter-btn px-6 py-2.5 text-sm font-semibold rounded-md transition-all cursor-pointer"
+				>
+					Web
+				</button>
+				<button
+					data-filter="app"
+					class="filter-btn px-6 py-2.5 text-sm font-semibold rounded-md transition-all cursor-pointer"
+				>
+					Mobile Apps
+				</button>
+				<button
+					data-filter="api"
+					class="filter-btn px-6 py-2.5 text-sm font-semibold rounded-md transition-all cursor-pointer"
+				>
+					API
+				</button>
 			</div>
-			<div class="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-				<div class="relative overflow-hidden rounded-lg shadow-lg md:order-2">
-					<div
-						class="aspect-video bg-cover bg-center"
-						style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLn7jXbGye172UBmeUns5WrkHCnyPttLbwaOLsL3dM8zVagDgRhNZ0XTwL8UGjemhnhFv_3HswgUX61lYHmPZe57T7aTqvN7GO3-9PEMuDgZfrXWyvKjr-xkpIp_bOXh1kMAxW9akkytLOQZV5UAjPH7YLyHkuy0iQGftOc5I9O4l66KOsoal3B7xUe_xfCffki0pz3SYR-wN16OLjSU9vgH6B25oIbBz_3451pcw1Z3saBZUyVvRzzQ3XKOSpcJbvGGTyZ_LTF8A");'
-					>
+		</div>
+
+		<div class="space-y-16" id="projects-container">
+			{
+				projects.map((project, index) => (
+					<div data-project-type={project.type} class="project-item">
+						<ProjectCard
+							title={project.title}
+							description={project.description}
+							image={project.image}
+							projectUrl={project.projectUrl}
+							githubUrl={project.githubUrl}
+							type={project.type}
+							reverse={index % 2 !== 0}
+						/>
 					</div>
-					<div
-						class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"
-					>
-					</div>
-				</div>
-				<div class="flex flex-col gap-2 md:order-1">
-					<h3 class="text-2xl font-bold text-slate-900 dark:text-white">
-						E-commerce Platform
-					</h3>
-					<p class="text-slate-600 dark:text-slate-400">
-						A full-stack e-commerce platform built with modern web technologies,
-						featuring a responsive design, user authentication, and a secure
-						payment gateway.
-					</p>
-					<div class="mt-4 flex items-center gap-4">
-						<a
-							class="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-all"
-							href="#">View Project</a
-						>
-						<a
-							class="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
-							href="#">GitHub</a
-						>
-					</div>
-				</div>
-			</div>
-			<div class="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-				<div class="relative overflow-hidden rounded-lg shadow-lg">
-					<div
-						class="aspect-video bg-cover bg-center"
-						style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDljO-2-0bdtwfcpkdfmFZt9Blmdvq9tcF6JuCIhzb3uOykVq5irbJYa9I7J2xU6Oris-EVDA4-BiP_kim2TD2RKAJvWhuFb_ZSz3xMNI-t1fGSuDMympokbgUoshssoCAtWRYe9NrWtfhWoCd7tOY3qVyoGawQuDlEzMlnXrA0G-L3sFlOneyc1UqaDzT6Hmz0glBPtnuS0j52gaBEAuesmfxb6I3LMLFVvr3-5N4bHnPXXxaUKwXF0Tq-EH2WGf1TdDpzVBHojs0");'
-					>
-					</div>
-					<div
-						class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"
-					>
-					</div>
-				</div>
-				<div class="flex flex-col gap-2">
-					<h3 class="text-2xl font-bold text-slate-900 dark:text-white">
-						Portfolio Website
-					</h3>
-					<p class="text-slate-600 dark:text-slate-400">
-						This very portfolio website, designed and developed with a focus on
-						minimalism and modern aesthetics, showcasing my projects and skills.
-					</p>
-					<div class="mt-4 flex items-center gap-4">
-						<a
-							class="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-all"
-							href="#">View Project</a
-						>
-						<a
-							class="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
-							href="#">GitHub</a
-						>
-					</div>
-				</div>
-			</div>
+				))
+			}
 		</div>
 	</div>
 </main>
+
+<style>
+	.filter-btn {
+		color: var(--slate-600);
+	}
+
+	:global(.dark) .filter-btn {
+		color: var(--slate-400);
+	}
+
+	.filter-btn.active {
+		background-color: var(--primary);
+		color: white;
+	}
+
+	.filter-btn:hover:not(.active) {
+		background-color: var(--slate-300);
+	}
+
+	:global(.dark) .filter-btn:hover:not(.active) {
+		background-color: var(--slate-700);
+	}
+
+	.project-item {
+		transition:
+			opacity 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	.project-item.hidden {
+		display: none;
+	}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const filterButtons = document.querySelectorAll(".filter-btn")
+		const projectItems = document.querySelectorAll(".project-item")
+
+		filterButtons.forEach((button) => {
+			button.addEventListener("click", () => {
+				const filter = button.getAttribute("data-filter")
+
+				// Update active button
+				filterButtons.forEach((btn) => btn.classList.remove("active"))
+				button.classList.add("active")
+
+				// Filter projects
+				projectItems.forEach((item) => {
+					const projectType = item.getAttribute("data-project-type")
+
+					if (filter === "all" || projectType === filter) {
+						item.classList.remove("hidden")
+					} else {
+						item.classList.add("hidden")
+					}
+				})
+			})
+		})
+	})
+</script>
