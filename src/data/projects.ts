@@ -13,12 +13,24 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		id: "ai-platform",
+		title: "QuickLanding",
+		description:
+			"A Next.js application that uses AI to generate personalized landing pages in real-time through conversational chat.",
+		image: "/quick.png",
+
+		githubUrl: "https://github.com/Jeri-Dev/QuickLanding",
+		type: "web",
+		technologies: ["Typescript", "React", "Groc", "NextJS", "AI"],
+	},
+
+	{
 		id: "shu",
 		title: "Suplidora HU",
 		description:
 			"This is a project for the Suplidora HU company. It is a web application that allows the company to manage its inventory and invoces for its clients and a public catalogue for its products.",
-		image: "https://suplidorahernandez.com/",
-		githubUrl: "https://github.com/JendyTech/SuplidoraHU",
+		image: "/suplidora.png",
+		projectUrl: "https://suplidorahernandez.com/",
 		type: "web",
 		technologies: ["Typescript", "React", "NextJS", "Tailwind", "NestJS"],
 	},
@@ -26,53 +38,31 @@ export const projects: Project[] = [
 		id: "ecommerce-platform",
 		title: "Auto-Llaves-Facturacion",
 		description:
-			"Sistema frontend de facturación profesional desarrollado con React, TypeScript y Tailwind CSS para consumir una API REST en NestJS.",
-		image:
-			"https://lh3.googleusercontent.com/aida-public/AB6AXuBLn7jXbGye172UBmeUns5WrkHCnyPttLbwaOLsL3dM8zVagDgRhNZ0XTwL8UGjemhnhFv_3HswgUX61lYHmPZe57T7aTqvN7GO3-9PEMuDgZfrXWyvKjr-xkpIp_bOXh1kMAxW9akkytLOQZV5UAjPH7YLyHkuy0iQGftOc5I9O4l66KOsoal3B7xUe_xfCffki0pz3SYR-wN16OLjSU9vgH6B25oIbBz_3451pcw1Z3saBZUyVvRzzQ3XKOSpcJbvGGTyZ_LTF8A",
+			"Professional invoicing frontend system developed with React, TypeScript and Tailwind CSS to consume a REST API in NestJS.",
+		image: "/alg.png",
+
 		githubUrl: "https://github.com/Jeri-Dev/Auto-Llaves-Facturacion-FE",
 		type: "web",
 		technologies: ["Typescript", "React", "MaterialUI", "NestJS", "SQL"],
 	},
 	{
-		id: "Defensa-Civil-App",
-		title: "Defensa Civil App",
+		id: "EmotionsApi",
+		title: "Emotion Analizer",
 		description:
-			"Esta fue una aplicacion movil desarrollada para el ministerio de defensa civil de Republica Domincana, la cual permite a los usuarios reportar desastres naturales y recibir alertas en tiempo real.",
-		image:
-			"https://lh3.googleusercontent.com/aida-public/AB6AXuDljO-2-0bdtwfcpkdfmFZt9Blmdvq9tcF6JuCIhzb3uOykVq5irbJYa9I7J2xU6Oris-EVDA4-BiP_kim2TD2RKAJvWhuFb_ZSz3xMNI-t1fGSuDMympokbgUoshssoCAtWRYe9NrWtfhWoCd7tOY3qVyoGawQuDlEzMlnXrA0G-L3sFlOneyc1UqaDzT6Hmz0glBPtnuS0j52gaBEAuesmfxb6I3LMLFVvr3-5N4bHnPXXxaUKwXF0Tq-EH2WGf1TdDpzVBHojs0",
-		githubUrl: "https://github.com/Proyecto-Final-Amadis/Defensa-Civil-App/",
-		type: "app",
-		technologies: ["Dart", "Flutter"],
-	},
-	{
-		id: "portfolio-website",
-		title: "MultiTool App",
-		description:
-			"Esta aplicacion cuenta con difentes herramientas e implementaciones de api diferentes para el usuario.",
-		image:
-			"https://lh3.googleusercontent.com/aida-public/AB6AXuDljO-2-0bdtwfcpkdfmFZt9Blmdvq9tcF6JuCIhzb3uOykVq5irbJYa9I7J2xU6Oris-EVDA4-BiP_kim2TD2RKAJvWhuFb_ZSz3xMNI-t1fGSuDMympokbgUoshssoCAtWRYe9NrWtfhWoCd7tOY3qVyoGawQuDlEzMlnXrA0G-L3sFlOneyc1UqaDzT6Hmz0glBPtnuS0j52gaBEAuesmfxb6I3LMLFVvr3-5N4bHnPXXxaUKwXF0Tq-EH2WGf1TdDpzVBHojs0",
-		githubUrl: "https://github.com/Proyecto-Final-Amadis/Defensa-Civil-App/",
-		type: "app",
-		technologies: ["Dart", "Flutter"],
+			"This project originated from a university final project. It is based on an AI model capable of transcribing audio and interpreting the speaker's emotions through NLP integration.",
+		image: "/emo_analisys.png",
+		githubUrl: "https://github.com/Jeri-Dev/RestaurantApi",
+		type: "api",
+		technologies: ["Python", "FastAPI", "Sklearn"],
 	},
 	{
 		id: "RestaurantApi",
 		title: "RestaurantApi",
 		description:
-			"API para la administracion de restaurantes tanto como sus platos, ordenes, mesas y usuarios.",
-		image: "/emo_analisys.png",
+			"API for restaurant management including dishes, orders, tables and users.",
+		image: "/restaurant.png",
 		githubUrl: "https://github.com/Jeri-Dev/EmotionsApi/tree/main",
 		type: "api",
 		technologies: ["C#", ".NET", "Entity Framework"],
-	},
-	{
-		id: "EmotionsApi",
-		title: "Emotion Analizer",
-		description:
-			"Este es un proyecto surgio por un proyecto final universitario, se basa en un modelo de IA capaz de transcribir un audio e interpretar el sentimiento del hablante gracias a integracion de NLP.",
-		image: "/emo_analisys.png",
-		githubUrl: "https://github.com/Jeri-Dev/RestaurantApi",
-		type: "api",
-		technologies: ["Python", "FastAPI", "Sklearn"],
 	},
 ]
