@@ -15,7 +15,74 @@ import Navbar from "../components/Navbar.astro"
 	<body
 		class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100"
 	>
+		<!-- Creative Loader -->
+		<div
+			id="page-loader"
+			class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#137fec] via-[#101922] to-[#0a0f15] transition-opacity duration-500"
+		>
+			<div class="relative">
+				<!-- Animated Circle -->
+				<div
+					class="loader-circle w-32 h-32 rounded-full border-4 border-transparent border-t-white border-r-white animate-spin"
+				>
+				</div>
+
+				<!-- Center Logo/Initial -->
+				<div class="absolute inset-0 flex items-center justify-center">
+					<span class="text-4xl font-black text-white animate-pulse">JG</span>
+				</div>
+			</div>
+
+			<!-- Loading Text -->
+			<div class="absolute bottom-20">
+				<p class="text-white text-lg font-semibold animate-pulse">
+					Loading Portfolio...
+				</p>
+			</div>
+		</div>
+
 		<Navbar />
 		<slot />
+
+		<style>
+			@keyframes fadeOut {
+				from {
+					opacity: 1;
+					visibility: visible;
+				}
+				to {
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+
+			.loader-hidden {
+				animation: fadeOut 0.5s ease-out forwards;
+			}
+		</style>
+
+		<script>
+			// Hide loader when page is fully loaded
+			window.addEventListener("load", () => {
+				const loader = document.getElementById("page-loader")
+				if (loader) {
+					loader.classList.add("loader-hidden")
+					setTimeout(() => {
+						loader.style.display = "none"
+					}, 500)
+				}
+			})
+
+			// Fallback: Hide loader after 3 seconds maximum
+			setTimeout(() => {
+				const loader = document.getElementById("page-loader")
+				if (loader && loader.style.display !== "none") {
+					loader.classList.add("loader-hidden")
+					setTimeout(() => {
+						loader.style.display = "none"
+					}, 500)
+				}
+			}, 3000)
+		</script>
 	</body>
 </html>
